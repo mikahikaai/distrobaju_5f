@@ -14,7 +14,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $barang = Barang::orderBy('nama_barang', 'ASC')->paginate(10);
+        return view('barang.read', ['barangs' => $barang]);
     }
 
     /**
@@ -24,7 +25,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barang.create');
     }
 
     /**
@@ -35,7 +36,13 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Barang::create([
+            'nama_barang' => $request->nama_barang,
+            'jenis_barang' => $request->jenis_barang,
+            'harga_barang' => $request->harga_barang,
+        ]);
+
+        return redirect('/barang');
     }
 
     /**
@@ -44,9 +51,10 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function show(Barang $barang)
+    public function show($id)
     {
-        //
+        $barang = Barang::find($id);
+        return view('barang.show', ['barangs' => $barang]);
     }
 
     /**
@@ -55,9 +63,10 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barang $barang)
+    public function edit($id)
     {
-        //
+        $barang = Barang::find($id);
+        return view('barang.update', ['barangs' => $barang]);
     }
 
     /**
@@ -67,9 +76,15 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Barang $barang)
+    public function update(Request $request, $id)
     {
-        //
+        $barang = Barang::find($id);
+        $barang->nama_barang = $request->nama_barang;
+        $barang->jenis_barang = $request->jenis_barang;
+        $barang->harga_barang = $request->harga_barang;
+        $barang->save();
+
+        return redirect('/barang');
     }
 
     /**
@@ -78,8 +93,9 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barang $barang)
+    public function destroy($id)
     {
-        //
+        Barang::find($id)->delete();
+        return redirect('/barang');
     }
 }

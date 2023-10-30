@@ -14,7 +14,9 @@ class BarangFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nama_barang' => $this->faker->word(),
+            'jenis_barang' => $this->faker->randomElement(['Baju', 'Celana', 'Topi', 'Sepatu']),
+            'harga_barang' => $this->faker->numberBetween($min = 100, $max = 5000)*500,
         ];
     }
 }

@@ -27,10 +27,10 @@
                         <a class="nav-link {{ request()->is('pengguna*') ? 'active' : '' }}" href="/pengguna">Pengguna</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/barang">Barang</a>
+                        <a class="nav-link {{ request()->is('barang*') ? 'active' : '' }}" href="/barang">Barang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link href="/trx">Transaksi</a>
+                        <a class="nav-link" href="/trx">Transaksi</a>
                     </li>
                 </ul>
             </div>

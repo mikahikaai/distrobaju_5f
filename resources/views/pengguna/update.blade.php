@@ -1,6 +1,6 @@
 @extends('landing')
 
-@section('JUDUL', 'Pengguna | Lihat Data')
+@section('JUDUL', 'Pengguna | Update Data')
 
 @section('CONTENT')
     <form action="/pengguna/{{ $penggunas->id }}" method="post">
