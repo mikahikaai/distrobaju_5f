@@ -10,4 +10,8 @@ class Pengguna extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function transaksi() {
+        return $this->hasOne(Transaksi::class);
+    }
 }

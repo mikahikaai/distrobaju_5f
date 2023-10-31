@@ -30,7 +30,7 @@
                         <a class="nav-link {{ request()->is('barang*') ? 'active' : '' }}" href="/barang">Barang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/trx">Transaksi</a>
+                        <a class="nav-link {{ request()->is('transaksi*') ? 'active' : '' }}" href="/transaksi">Transaksi</a>
                     </li>
                 </ul>
             </div>

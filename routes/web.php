@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ Route::get('/', function () {
 
 Route::resource('/pengguna', PenggunaController::class);
 Route::resource('/barang', BarangController::class);
+Route::resource('/transaksi', TransaksiController::class);
